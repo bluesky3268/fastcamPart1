@@ -1,4 +1,4 @@
-package org.example;
+package org.example.testcode;
 
 public class PasswordValidator {
     private static final String WRONG_PASSWORD_LENGTH_MESSAGE = "비밀번호 길이는 8~12자입니다.";
