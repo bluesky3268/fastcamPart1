@@ -17,6 +17,7 @@ public class WebApplicationServer {
 
         // localhost:8080 으로 붙었을 때 루트 폴더를 webapps를 바라보도록 설정
         // 서버가 뜰 때 빌드된 파일들이 webapps/classes 하위로 들어감
+        // embedded 톰캣이 루트 경로(webapp 디렉토리, 우리가 코드로 설정했음) 밑에 있는 WEB-INF/classes(톰캣과 약속된 경로) 밑에서 실행할(빌드된) 클래스 파일을 찾기
         String webappDirLocation = "webapps/";
         int port = 8080;
         Tomcat tomcat = new Tomcat();
