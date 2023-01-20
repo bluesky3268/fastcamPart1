@@ -24,6 +24,16 @@ dependencies {
     // jsp사용을 위한 의존성 추가
     implementation 'javax.servlet:jstl:1.2'
 
+    // 패스워드를 생성해주는 라이브러리 추가
+    implementation 'org.passay:passay:1.6.1'
+
+
+    // assertJ 의존성 추가
+    testImplementation 'org.assertj:assertj-core:3.23.1'
+
+    // junit jupiter param 의존성 추가
+    testImplementation 'org.junit.jupiter:junit-jupiter-params:5.8.2'
+
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.0'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
 }
