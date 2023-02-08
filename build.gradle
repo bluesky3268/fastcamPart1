@@ -17,6 +17,9 @@ dependencies {
     // log사용을 위한 의존성 추가
     implementation 'org.slf4j:slf4j-api:1.7.25'
     testImplementation 'ch.qos.logback:logback-classic:1.2.3'
+    
+    // SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder". 오류 대응
+    implementation 'org.slf4j:slf4j-simple:1.7.32'
 
     // 서블릿 사용을 위한 의존성 추가
     implementation 'javax.servlet:javax.servlet-api:4.0.1'

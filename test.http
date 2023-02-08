@@ -1,0 +1,2 @@
+GET http://localhost:8080/calculate?operand1=20&operator=%2b&operand2=10
+// + 는 URL 예약어이기 때문에 인코딩해서 보내줘야 한다.(+ == %2b)
