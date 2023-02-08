@@ -1,4 +1,4 @@
-package org.example.ch3.counter;
+package org.example.ch4.counter;
 
 public class RaceConditionDemo {
     public static void main(String[] args) {
