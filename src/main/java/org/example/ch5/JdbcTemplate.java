@@ -50,8 +50,6 @@ public class JdbcTemplate{
             if(pstmt != null) pstmt.close();
             if(conn != null) conn.close();
         }
-
-        return user;
     }
 
 }
