@@ -4,34 +4,42 @@ import com.zaxxer.hikari.HikariDataSource;
 
 import javax.sql.DataSource;
 import java.sql.Connection;
-import java.sql.DriverManager;
+import java.sql.SQLException;
 
 public class ConnectionManager {
 
-    private static final String url = "jdbc:h2:mem://localhost/~/jdbc-practice;MODE=MySQL;DB_CLOSE_DELAY=1";
-    private static final String driverClassName = "org.h2.Driver";
-    private static final String id = "sa";
-    private static final String password = "";
+    private static final String DB_URL = "jdbc:h2:mem://localhost/~/jdbc-practice;MODE=MySQL;DB_CLOSE_DELAY=1";
+    private static final String DRIVER_CLASS_NAME = "org.h2.Driver";
+    private static final String ID = "sa";
+    private static final String PASSWORD = "";
+    public static final int MAX_POOL_SIZE = 20;
 
-    public static DataSource getDataSource() {
+    private static final DataSource dataSource;
+
+    static {
         HikariDataSource hikariDataSource = new HikariDataSource();
 
-        hikariDataSource.setDriverClassName(driverClassName);
-        hikariDataSource.setJdbcUrl(url);
-        hikariDataSource.setUsername(id);
-        hikariDataSource.setPassword(password);
+        hikariDataSource.setDriverClassName(DRIVER_CLASS_NAME);
+        hikariDataSource.setJdbcUrl(DB_URL);
+        hikariDataSource.setUsername(ID);
+        hikariDataSource.setPassword(PASSWORD);
 
-        return hikariDataSource;
+        hikariDataSource.setMaximumPoolSize(MAX_POOL_SIZE);
+        hikariDataSource.setMinimumIdle(MAX_POOL_SIZE);
+
+        dataSource = hikariDataSource;
     }
 
     public static Connection getConnection() {
-        try{
-            Class.forName(driverClassName);
-            return DriverManager.getConnection(url, id, password);
-        } catch (Exception e) {
-            return null;
+        try {
+            return dataSource.getConnection();
+        } catch (SQLException e) {
+            throw new IllegalStateException(e);
         }
+    }
 
+    public static DataSource getDataSource(){
+        return dataSource;
     }
 
 }
