@@ -15,6 +15,6 @@ public class HomeController implements Controller{
     @Override
     public String handleRequest(HttpServletRequest request, HttpServletResponse response) throws Exception {
         log.info("[HomeController] handleRequest started");
-        return "home.jsp";
+        return "home";
     }
 }
